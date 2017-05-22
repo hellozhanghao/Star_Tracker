@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class StartCameraActivity extends Activity {
 
+    // TODO: 2017/5/22 Add Camera UI
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
