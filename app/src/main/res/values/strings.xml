@@ -4,6 +4,6 @@
     <!--For Main Activity-->
     <string name="main_activity_title">This device is a</string>
     <string name="camera_button">CAMERA</string>
-    <string name="phone_button">Phone</string>
+    <string name="phone_button">PHONE</string>
 
 </resources>
