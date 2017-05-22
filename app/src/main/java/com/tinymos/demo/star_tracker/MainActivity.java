@@ -1,12 +1,17 @@
 package com.tinymos.demo.star_tracker;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+import static android.R.attr.button;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -106,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+
     }
 
     @Override
@@ -160,5 +167,11 @@ public class MainActivity extends AppCompatActivity {
     private void delayedHide(int delayMillis) {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
+    }
+
+    public void startTracker(View view)
+    {
+//        Intent intent = new Intent(MainActivity.this, CameraActivity.class);
+//        startActivity(intent);
     }
 }
