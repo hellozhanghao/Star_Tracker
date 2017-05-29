@@ -9,11 +9,11 @@ import java.io.IOException;
 
 public class TestSkyMap {
     public static void main(String[] args) throws IOException {
-//        HttpResponse response;
-//        response = Request.Post("http://www.example.com").bodyForm(Form.form().add("username", "John").add("password", "pass").build()).execute().returnResponse();
-//
-//        System.out.println(response.toString());
-//
+        HttpResponse response;
+        response = Request.Post("http://www.example.com").bodyForm(Form.form().add("username", "John").add("password", "pass").build()).execute().returnResponse();
+
+        System.out.println(response.toString());
+
         System.out.println("Hello");
     }
 }
