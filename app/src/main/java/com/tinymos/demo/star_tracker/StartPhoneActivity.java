@@ -62,6 +62,7 @@ public class StartPhoneActivity extends Activity {
             e.printStackTrace();
             String message = e.getMessage();
             Toast.makeText(getApplication(),message, Toast.LENGTH_LONG).show();
+
         }
 
 
