@@ -7,9 +7,9 @@ package com.tinymos.demo.star_tracker;
 public class Constant {
 
     static int port=4321;
-    static String serverIP = "10.12.44.104";
+    static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
 
-//    static String serverIP = "10.12.87.140";
+//    static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
     private static String deviceIpAddress;
 
 

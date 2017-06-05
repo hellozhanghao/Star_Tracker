@@ -38,5 +38,4 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.3.1'
-    compile files('src/main/java/com/tinymos/demo/star_tracker/libs/javacv.jar')
 }
