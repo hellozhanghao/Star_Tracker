@@ -10,6 +10,11 @@ public class Constant {
     static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
 
 //    static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
+
+    static String phoneIP;
+    static String cameraIP;
+
+
     private static String deviceIpAddress;
 
 

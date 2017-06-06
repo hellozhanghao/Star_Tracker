@@ -27,19 +27,21 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/getIPButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:elevation="0dp"
-                android:text="Icon" />
+                android:text="Get IP"
+                android:onClick="getIP"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/SendMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Icon" />
+                android:text="Send Message"
+                android:onClick="sendMessage"/>
 
             <Button
                 android:id="@+id/button3"
@@ -63,11 +65,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/mainText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Placeholder"
-                android:textSize="80sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
