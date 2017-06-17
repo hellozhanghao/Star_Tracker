@@ -1,18 +1,24 @@
 package com.tinymos.demo.star_tracker;
 
+import java.io.PrintWriter;
+import java.net.Socket;
+
 /**
  * Created by zhanghao on 2017/6/5.
  */
 
 public class Constant {
 
-    static int port=4321;
-    static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
+    public static int port=4321;
+    public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
 
 //    static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
 
-    static String phoneIP;
-    static String cameraIP;
+    public static String phoneIP;
+    public static String cameraIP;
+    public static String PiIP = "localhost";
+    public static Socket PiSocket;
+    public static PrintWriter piWriter;
 
 
     private static String deviceIpAddress;

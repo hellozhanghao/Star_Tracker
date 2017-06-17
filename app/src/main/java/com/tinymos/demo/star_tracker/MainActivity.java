@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+import com.tinymos.demo.star_tracker.camera.StartCameraActivity;
+import com.tinymos.demo.star_tracker.phone.SearchStar;
+import com.tinymos.demo.star_tracker.phone.StartPhoneActivity;
+
 public class MainActivity extends Activity {
 
     @Override
@@ -17,7 +21,8 @@ public class MainActivity extends Activity {
 
     public void startPhone(View view)
     {
-        Intent intent = new Intent(MainActivity.this, StartPhoneActivity.class);
+//        Intent intent = new Intent(MainActivity.this, StartPhoneActivity.class);
+        Intent intent = new Intent(MainActivity.this, SearchStar.class);
         startActivity(intent);
     }
 

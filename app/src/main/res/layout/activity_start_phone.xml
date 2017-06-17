@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/starmap"
-    tools:context="com.tinymos.demo.star_tracker.StartPhoneActivity">
+    tools:context="com.tinymos.demo.star_tracker.phone.StartPhoneActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

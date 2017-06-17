@@ -1,4 +1,4 @@
-package com.tinymos.demo.star_tracker;
+package com.tinymos.demo.star_tracker.camera;
 
 /**
  * Created by zhanghao on 2017/6/7.

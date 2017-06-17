@@ -1,4 +1,4 @@
-package com.tinymos.demo.star_tracker;
+package com.tinymos.demo.star_tracker.camera;
 
 import android.app.Activity;
 import android.hardware.Camera;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.tinymos.demo.star_tracker.R;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,7 +18,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static android.R.attr.id;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE;
 import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
 

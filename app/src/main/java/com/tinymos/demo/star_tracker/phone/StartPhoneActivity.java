@@ -1,50 +1,45 @@
-package com.tinymos.demo.star_tracker;
+package com.tinymos.demo.star_tracker.phone;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.hardware.Camera;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 
-public class StartCameraActivity extends Activity {
-
-    // TODO: 2017/5/22 Add Camera UI
+public class StartPhoneActivity extends Activity {
 
 
-    private ServerSocket serverSocket;
+//    long time = System.currentTimeMillis();
 
+    private int counter = 0;
 
     private Handler handler = new Handler();
-
 
     private Runnable backGroundTask = new Runnable() {
 
         public void run() {
-            getMessages();
 
-            handler.postDelayed(this, 2000); // refresh every 1000 ms = 1 sec
+            handler.postDelayed(this, 1000); // refresh every 1000 ms = 1 sec
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_camera);
+        setContentView(R.layout.activity_start_phone);
 
         //get device address
         WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
@@ -56,16 +51,9 @@ public class StartCameraActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
         try {
-            serverSocket = new ServerSocket(4321);
-            serverSocket.setSoTimeout(100);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try {
             Socket clientSocket = new Socket(Constant.serverIP, Constant.port);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
-            printWriter.println("I am a Camera");
+            printWriter.println("I am a Phone");
 
             Toast.makeText(getApplication(),"IP address "+ip+" sent to server",
                     Toast.LENGTH_LONG).show();
@@ -75,44 +63,52 @@ public class StartCameraActivity extends Activity {
             e.printStackTrace();
             String message = e.getMessage();
             Toast.makeText(getApplication(),message, Toast.LENGTH_LONG).show();
-
         }
 
         backGroundTask.run();
-
-
-
-
     }
 
-
-    public void getMessages(){
-
+    public void getIP(View view){
         try {
-            Socket client = serverSocket.accept();
+            Socket clientSocket = new Socket(Constant.serverIP, Constant.port);
+            PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
+            printWriter.println("request ip");
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             String message = bufferedReader.readLine();
-
-            TextView text = (TextView) findViewById(R.id.viewer);
+            clientSocket.close();
+            TextView text = (TextView) findViewById(R.id.mainText);
             text.setText(message);
 
-            client.close();
-//            serverSocket.close();
+            String[] messages = message.split(";");
+            String[] messages1 = messages[0].split(":");
+            String[] messages2 = messages[1].split(":");
+            Constant.phoneIP = messages1[1];
+            Constant.cameraIP = messages2[1];
 
         } catch (IOException e) {
             e.printStackTrace();
+            String message = e.getMessage();
+            Toast.makeText(getApplication(),message, Toast.LENGTH_LONG).show();
         }
-
     }
 
+    public void sendMessage(View view){
+        try {
+            Socket clientSocket = new Socket(Constant.cameraIP, Constant.port);
+            PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
+            printWriter.println("Message "+ counter);
+            counter++;
 
+            clientSocket.close();
 
-    public void runCamera(View view)
-    {
-        Intent intent = new Intent(StartCameraActivity.this, CameraActivity.class);
-        startActivity(intent);
+        } catch (IOException e) {
+            e.printStackTrace();
+            String message = e.getMessage();
+            Toast.makeText(getApplication(),message, Toast.LENGTH_LONG).show();
+        }
     }
+
 
 
 
