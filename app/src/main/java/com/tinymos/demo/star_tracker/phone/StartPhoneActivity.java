@@ -39,7 +39,7 @@ public class StartPhoneActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_phone);
+        setContentView(R.layout.phone_start_phone);
 
         //get device address
         WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);

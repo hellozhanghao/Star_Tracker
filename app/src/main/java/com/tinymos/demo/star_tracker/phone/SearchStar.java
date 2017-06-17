@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.tinymos.demo.star_tracker.Constant;
-import com.tinymos.demo.star_tracker.MainActivity;
 import com.tinymos.demo.star_tracker.R;
-import com.tinymos.demo.star_tracker.camera.StartCameraActivity;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,7 +26,7 @@ public class SearchStar extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_star);
+        setContentView(R.layout.phone_search_star);
 
 
         //to avoid network on main thread exception

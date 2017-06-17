@@ -68,7 +68,7 @@ public class CameraActivity extends Activity {
             c = Camera.open(); // attempt to get a Camera instance
         }
         catch (Exception e){
-            Log.i("Zhang Hao","Failed to get camera");
+            Log.i("Camera","Failed to get camera");
         }
         return c; // returns null if camera is unavailable
     }

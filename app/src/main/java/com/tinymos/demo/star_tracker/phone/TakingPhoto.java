@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
+import com.tinymos.demo.star_tracker.Constant;
 import com.tinymos.demo.star_tracker.R;
 
 public class TakingPhoto extends Activity {
@@ -12,7 +14,7 @@ public class TakingPhoto extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_taking_photo);
+        setContentView(R.layout.phone_taking_photo);
 
 
 
@@ -27,5 +29,12 @@ public class TakingPhoto extends Activity {
                 finish();
             }
         }, secondsDelayed * 1000);
+    }
+
+    public void abort(View view)
+    {
+        Intent intent = new Intent(TakingPhoto.this, SearchStar.class);
+        Constant.piWriter.println("abort");
+        startActivity(intent);
     }
 }
