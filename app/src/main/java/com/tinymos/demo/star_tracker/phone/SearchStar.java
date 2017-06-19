@@ -29,21 +29,6 @@ public class SearchStar extends Activity {
         setContentView(R.layout.phone_search_star);
 
 
-        //to avoid network on main thread exception
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        if (Constant.piWriter == null){
-            try {
-                Constant.PiSocket = new Socket(Constant.serverIP, 5001);
-                Constant.piWriter = new PrintWriter(Constant.PiSocket.getOutputStream(), true); //set true for autoflush
-                Constant.piWriter.println("Hello, connection Established");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
         mButton = (Button)findViewById(R.id.search_button);
         mEdit   = (EditText)findViewById(R.id.search_bar);
 

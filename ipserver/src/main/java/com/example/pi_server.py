@@ -15,6 +15,6 @@ while True:
     data = conn.recv(1024).decode()
     if not data:
         break
-    print("from connected  user: " + str(data).replace("\n"))
+    print("from connected  user: " + str(data))
 
 conn.close()

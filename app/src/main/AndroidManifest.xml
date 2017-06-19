@@ -42,7 +42,9 @@
         <activity android:name=".phone.SearchStar" />
         <activity android:name=".phone.TrackingProgress" />
         <activity android:name=".phone.ComfirmTracking" />
-        <activity android:name=".phone.TakingPhoto"></activity>
+        <activity android:name=".phone.TakingPhoto" />
+        <activity android:name=".phone.Init" />
+        <activity android:name=".phone.Calibrating"></activity>
     </application>
 
 </manifest>
