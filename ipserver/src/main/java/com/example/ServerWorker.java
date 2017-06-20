@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -11,34 +12,26 @@ import java.net.Socket;
 
 public class ServerWorker extends Thread {
 
-    private Socket client;
+    private BufferedReader in;
+    private PrintWriter out;
 
-    ServerWorker(Socket client){
-        this.client = client;
+    ServerWorker(BufferedReader in, PrintWriter out){
+        this.in = in;
+        this.out = out;
     }
     public void run() {
-        try{
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            String message = bufferedReader.readLine();
-            if (message.equals("I am a Phone")){
-                Server.phoneIp = client.getInetAddress().toString().replace("/","");
-            }
-            else if (message.equals("I am a Camera")){
-                Server.cameraIP = client.getInetAddress().toString().replace("/","");
-            }
-            else if (message.equals("request ip")){
-                PrintWriter printWriter = new PrintWriter(client.getOutputStream(), true);
-                if (Server.cameraIP != null & Server.phoneIp != null){
-                    printWriter.println("phone:"+Server.phoneIp+";camera:"+Server.cameraIP);
-                } else {
-                    printWriter.println("checkout later");
+        while (true){
+            try{
+                String message = in.readLine();
+                if (message.equals("connect")){
+                    if (Server.validConnection()) out.println("Connection OK");
+                    else out.println("Checkout later");
                 }
+            } catch (IOException e1) {
+                e1.printStackTrace();
             }
-            client.close();
-            System.out.println("Address: Phone:"+Server.phoneIp +" Camera:"+Server.cameraIP);
-        }catch (Exception e){
-            e.printStackTrace();
         }
+
     }
 
 }

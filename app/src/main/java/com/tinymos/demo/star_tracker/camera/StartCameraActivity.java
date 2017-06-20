@@ -63,7 +63,7 @@ public class StartCameraActivity extends Activity {
         }
 
         try {
-            Socket clientSocket = new Socket(Constant.serverIP, Constant.port);
+            Socket clientSocket = new Socket(Constant.serverIP, Constant.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("I am a Camera");
 

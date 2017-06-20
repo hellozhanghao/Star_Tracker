@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.tinymos.demo.star_tracker.camera.StartCameraActivity;
-import com.tinymos.demo.star_tracker.phone.Init;
-import com.tinymos.demo.star_tracker.phone.SearchStar;
-import com.tinymos.demo.star_tracker.phone.StartPhoneActivity;
+import com.tinymos.demo.star_tracker.camera.launch.ServerCameraConnection;
+import com.tinymos.demo.star_tracker.phone.launch.ServerPhone;
 
 public class MainActivity extends Activity {
 
@@ -23,13 +21,13 @@ public class MainActivity extends Activity {
     public void startPhone(View view)
     {
 //        Intent intent = new Intent(MainActivity.this, StartPhoneActivity.class);
-        Intent intent = new Intent(MainActivity.this, Init.class);
+        Intent intent = new Intent(MainActivity.this, ServerPhone.class);
         startActivity(intent);
     }
 
     public void startCamera(View view)
     {
-        Intent intent = new Intent(MainActivity.this, StartCameraActivity.class);
+        Intent intent = new Intent(MainActivity.this, ServerCameraConnection.class);
         startActivity(intent);
     }
 

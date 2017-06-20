@@ -51,7 +51,7 @@ public class StartPhoneActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
         try {
-            Socket clientSocket = new Socket(Constant.serverIP, Constant.port);
+            Socket clientSocket = new Socket(Constant.serverIP, Constant.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("I am a Phone");
 
@@ -70,7 +70,7 @@ public class StartPhoneActivity extends Activity {
 
     public void getIP(View view){
         try {
-            Socket clientSocket = new Socket(Constant.serverIP, Constant.port);
+            Socket clientSocket = new Socket(Constant.serverIP, Constant.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("request ip");
 
@@ -95,7 +95,7 @@ public class StartPhoneActivity extends Activity {
 
     public void sendMessage(View view){
         try {
-            Socket clientSocket = new Socket(Constant.cameraIP, Constant.port);
+            Socket clientSocket = new Socket(Constant.cameraIP, Constant.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("Message "+ counter);
             counter++;

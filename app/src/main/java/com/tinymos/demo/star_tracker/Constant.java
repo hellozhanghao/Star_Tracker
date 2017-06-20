@@ -1,5 +1,6 @@
 package com.tinymos.demo.star_tracker;
 
+import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
@@ -9,8 +10,32 @@ import java.net.Socket;
 
 public class Constant {
 
-    public static int port=4321;
+    //server communications
+    public static int serverPort =4321;
     public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
+
+    public static Socket serverSocket;
+    public static BufferedReader serverIn;
+    public static PrintWriter serverOut;
+
+
+    public static boolean isServerConnected(){
+        if (serverSocket!=null & serverIn!=null & serverOut!=null){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public static void resetServerConnection(){
+        serverSocket = null;
+        serverIn = null;
+        serverOut = null;
+    }
+
+    public static boolean devicesReady = false;
+
+
 
 //    static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
 

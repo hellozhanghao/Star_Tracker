@@ -1,4 +1,4 @@
-package com.tinymos.demo.star_tracker.phone;
+package com.tinymos.demo.star_tracker.phone.launch;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.tinymos.demo.star_tracker.Constant;
 import com.tinymos.demo.star_tracker.R;
+import com.tinymos.demo.star_tracker.phone.Calibrating;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -33,6 +34,7 @@ public class Init extends Activity {
                 e.printStackTrace();
             }
         }
+        
     }
 
 
