@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.tinymos.demo.star_tracker.camera.C2CameraActivity;
+import com.tinymos.demo.star_tracker.camera.C2Camera;
 import com.tinymos.demo.star_tracker.camera.launch.C1ServerCameraConnection;
 import com.tinymos.demo.star_tracker.phone.launch.P1ServerPhoneConnection;
 
@@ -28,8 +28,8 @@ public class MainActivity extends Activity {
 
     public void startCamera(View view)
     {
-//        Intent intent = new Intent(MainActivity.this, C1ServerCameraConnection.class);
-        Intent intent = new Intent(MainActivity.this, C2CameraActivity.class);
+        Intent intent = new Intent(MainActivity.this, C1ServerCameraConnection.class);
+//        Intent intent = new Intent(MainActivity.this, C2Camera.class);
 
         startActivity(intent);
     }

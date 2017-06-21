@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
@@ -41,6 +42,9 @@ public class P2Init extends Activity {
                 e.printStackTrace();
             }
         }
+
+        Thread thread = new PhoneToCameraThread();
+        thread.start();
         
     }
 
@@ -49,6 +53,15 @@ public class P2Init extends Activity {
         Intent intent = new Intent(P2Init.this, P3Calibrating.class);
         Global.piWriter.println("CALIBRATE TRUE");
         startActivity(intent);
+    }
+
+    public void onCaptureButtonClicked(View view){
+        if (Global.cameraWriter!=null){
+            Global.cameraWriter.println("press");
+        }else {
+            Toast.makeText(getApplication(),"Camera not ready", Toast.LENGTH_LONG).show();
+
+        }
     }
 
 }

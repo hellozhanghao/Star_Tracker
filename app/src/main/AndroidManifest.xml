@@ -31,7 +31,7 @@
             android:name=".MainActivity"
             android:screenOrientation="userLandscape" />
         <activity
-            android:name=".camera.C2CameraActivity"
+            android:name=".camera.C2Camera"
             android:screenOrientation="landscape" />
         <activity
             android:name=".phone.P4SearchStar"

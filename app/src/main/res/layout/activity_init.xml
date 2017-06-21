@@ -32,6 +32,14 @@
                 android:layout_height="wrap_content"
                 android:text="Calibrate"
                 android:onClick="onCalibrateButtonClicked"/>
+
+            <Button
+                android:id="@+id/shutter_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Capture"
+                android:onClick="onCaptureButtonClicked"/>
+
         </LinearLayout>
 
         <LinearLayout

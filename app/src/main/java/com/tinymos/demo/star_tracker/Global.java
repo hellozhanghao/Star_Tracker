@@ -2,6 +2,7 @@ package com.tinymos.demo.star_tracker;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
@@ -65,6 +66,27 @@ public class Global {
     public static String phoneIP;
     public static String cameraIP;
 
+
+    /**
+     * Camera
+     */
+    public static boolean PRESS = false;
+    public static void press(){
+        PRESS = !PRESS;
+    }
+//    public static boolean PRESS2 = false;
+//    public static void press2(){
+//        PRESS2 = !PRESS2;
+//    }
+
+    /**
+     * Phone
+     *
+     */
+    public static ServerSocket cameraServerSocket;
+    public static Socket cameraSocket;
+    public static PrintWriter cameraWriter;
+    public static BufferedReader cameraReader;
 
 
 }

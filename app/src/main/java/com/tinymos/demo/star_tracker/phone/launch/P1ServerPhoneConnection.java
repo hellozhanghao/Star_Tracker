@@ -32,7 +32,7 @@ public class P1ServerPhoneConnection extends Activity {
             if (Global.ALL_DEVICES_READY){
                 runPhone();
             }else {
-                handler.postDelayed(this, 2000); // refresh every 1000 ms = 1 sec
+                handler.postDelayed(this, 1000); // refresh every 1000 ms = 1 sec
             }
         }
     };
@@ -49,6 +49,7 @@ public class P1ServerPhoneConnection extends Activity {
             connect.start();
         }
         Log.i("Connection","Connection OK");
+
         backGroundTask.run();
     }
 
@@ -56,6 +57,7 @@ public class P1ServerPhoneConnection extends Activity {
     public void runPhone()
     {
         Intent intent = new Intent(P1ServerPhoneConnection.this, P2Init.class);
+
         startActivity(intent);
     }
 }
