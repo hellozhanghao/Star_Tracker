@@ -30,8 +30,8 @@ public class C1ServerCameraConnection extends Activity {
                 e.printStackTrace();
             }
 
-            if (Global.devicesReady){
-                runCamera();
+            if (Global.ALL_DEVICES_READY){
+                next();
             }else {
                 handler.postDelayed(this, 2000); // refresh every 1000 ms = 1 sec
             }
@@ -55,7 +55,7 @@ public class C1ServerCameraConnection extends Activity {
     }
 
 
-    public void runCamera()
+    public void next()
     {
         Intent intent = new Intent(C1ServerCameraConnection.this, C2CameraActivity.class);
         startActivity(intent);

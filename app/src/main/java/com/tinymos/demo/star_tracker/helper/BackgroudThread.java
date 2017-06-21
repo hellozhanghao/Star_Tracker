@@ -23,7 +23,7 @@ public class BackgroudThread extends Thread {
 
                 if (message.equals("Checkout later")){
                     Log.i("Connection","Other Devices Not Ready");
-                    Global.devicesReady = false;
+                    Global.ALL_DEVICES_READY = false;
                 }else {
                     Log.i("Connection","Launcing Next Activity");
                     Log.i("Connection",message);
@@ -31,7 +31,7 @@ public class BackgroudThread extends Thread {
                     Global.phoneIP = ips[0];
                     Global.cameraIP = ips[1];
                     Global.piIP = ips[2];
-                    Global.devicesReady = true;
+                    Global.ALL_DEVICES_READY = true;
                 }
 
 

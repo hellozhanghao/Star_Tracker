@@ -137,8 +137,10 @@ public class C2CameraActivity extends Activity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         // get an image from the camera
                         mCamera.takePicture(null, null, mPicture);
+                        mCamera.startPreview();
 
 
                     }

@@ -29,7 +29,7 @@ public class P1ServerPhoneConnection extends Activity {
                 e.printStackTrace();
             }
 
-            if (Global.devicesReady){
+            if (Global.ALL_DEVICES_READY){
                 runPhone();
             }else {
                 handler.postDelayed(this, 2000); // refresh every 1000 ms = 1 sec

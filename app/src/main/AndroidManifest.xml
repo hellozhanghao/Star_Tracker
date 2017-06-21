@@ -31,22 +31,32 @@
             android:name=".MainActivity"
             android:screenOrientation="userLandscape" />
         <activity
-            android:name=".phone.StartPhoneActivity"
-            android:screenOrientation="userLandscape" />
-        <activity
-            android:name=".unusedCode.StartCameraActivity"
-            android:screenOrientation="userLandscape" />
-        <activity
             android:name=".camera.C2CameraActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".phone.P4SearchStar" />
-        <activity android:name=".phone.P5TrackingProgress" />
-        <activity android:name=".phone.P6ComfirmTracking" />
-        <activity android:name=".phone.P7TakingPhoto" />
-        <activity android:name=".phone.launch.P2Init" />
-        <activity android:name=".phone.P3Calibrating" />
-        <activity android:name=".camera.launch.C1ServerCameraConnection"></activity>
-        <activity android:name=".phone.launch.P1ServerPhoneConnection"></activity>
+        <activity
+            android:name=".phone.P4SearchStar"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name=".phone.P5TrackingProgress"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name=".phone.P6ComfirmTracking"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name=".phone.P7TakingPhoto"
+            android:screenOrientation="userLandscape"/>
+        <activity
+            android:name=".phone.launch.P2Init"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name=".phone.P3Calibrating"
+            android:screenOrientation="userLandscape"/>
+        <activity
+            android:name=".camera.launch.C1ServerCameraConnection"
+            android:screenOrientation="userLandscape"/>
+        <activity
+            android:name=".phone.launch.P1ServerPhoneConnection"
+            android:screenOrientation="userLandscape"/>
     </application>
 
 </manifest>
