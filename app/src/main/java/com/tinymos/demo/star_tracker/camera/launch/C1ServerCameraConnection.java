@@ -7,13 +7,13 @@ import android.os.Handler;
 import android.util.Log;
 
 import com.tinymos.demo.star_tracker.Global;
-import com.tinymos.demo.star_tracker.camera.CameraActivity;
+import com.tinymos.demo.star_tracker.camera.C2CameraActivity;
 import com.tinymos.demo.star_tracker.helper.BackgroudThread;
 import com.tinymos.demo.star_tracker.helper.ConnectionThread;
 import com.tinymos.demo.star_tracker.R;
 
 
-public class ServerCameraConnection extends Activity {
+public class C1ServerCameraConnection extends Activity {
 
 
     private Handler handler = new Handler();
@@ -57,7 +57,7 @@ public class ServerCameraConnection extends Activity {
 
     public void runCamera()
     {
-        Intent intent = new Intent(ServerCameraConnection.this, CameraActivity.class);
+        Intent intent = new Intent(C1ServerCameraConnection.this, C2CameraActivity.class);
         startActivity(intent);
     }
 }

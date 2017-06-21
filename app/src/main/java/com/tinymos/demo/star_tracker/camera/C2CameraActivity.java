@@ -28,7 +28,7 @@ import static android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO;
  * Created by zhanghao on 2017/6/7.
  */
 
-public class CameraActivity extends Activity {
+public class C2CameraActivity extends Activity {
 
     private Camera mCamera;
     private CameraPreview mPreview;
@@ -139,6 +139,8 @@ public class CameraActivity extends Activity {
                     public void onClick(View v) {
                         // get an image from the camera
                         mCamera.takePicture(null, null, mPicture);
+
+
                     }
                 }
         );

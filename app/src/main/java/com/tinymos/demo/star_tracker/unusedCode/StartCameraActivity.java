@@ -1,4 +1,4 @@
-package com.tinymos.demo.star_tracker.camera;
+package com.tinymos.demo.star_tracker.unusedCode;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
+import com.tinymos.demo.star_tracker.camera.C2CameraActivity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -77,12 +78,7 @@ public class StartCameraActivity extends Activity {
             Toast.makeText(getApplication(),message, Toast.LENGTH_LONG).show();
 
         }
-
         backGroundTask.run();
-
-
-
-
     }
 
 
@@ -107,10 +103,9 @@ public class StartCameraActivity extends Activity {
     }
 
 
-
     public void runCamera(View view)
     {
-        Intent intent = new Intent(StartCameraActivity.this, CameraActivity.class);
+        Intent intent = new Intent(StartCameraActivity.this, C2CameraActivity.class);
         startActivity(intent);
     }
 

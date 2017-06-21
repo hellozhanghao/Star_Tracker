@@ -11,7 +11,7 @@ import com.tinymos.demo.star_tracker.R;
 import com.tinymos.demo.star_tracker.helper.BackgroudThread;
 import com.tinymos.demo.star_tracker.helper.ConnectionThread;
 
-public class ServerPhoneConnection extends Activity {
+public class P1ServerPhoneConnection extends Activity {
 
 
 
@@ -55,7 +55,7 @@ public class ServerPhoneConnection extends Activity {
 
     public void runPhone()
     {
-        Intent intent = new Intent(ServerPhoneConnection.this, Init.class);
+        Intent intent = new Intent(P1ServerPhoneConnection.this, P2Init.class);
         startActivity(intent);
     }
 }

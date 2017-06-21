@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.tinymos.demo.star_tracker.R;
 
-public class SearchStar extends Activity {
+public class P4SearchStar extends Activity {
 
 
     Button   mButton;
@@ -44,8 +44,10 @@ public class SearchStar extends Activity {
 
     public void startTracking(View view)
     {
-        Intent intent = new Intent(SearchStar.this, TrackingProgress.class);
+        Intent intent = new Intent(P4SearchStar.this, P5TrackingProgress.class);
         intent.putExtra("name",starName);
         startActivity(intent);
     }
+
+
 }

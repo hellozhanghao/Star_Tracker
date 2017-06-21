@@ -8,7 +8,7 @@ import android.view.View;
 import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 
-public class ComfirmTracking extends Activity {
+public class P6ComfirmTracking extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class ComfirmTracking extends Activity {
 
     public void takePhoto(View view)
     {
-        Intent intent = new Intent(ComfirmTracking.this, TakingPhoto.class);
+        Intent intent = new Intent(P6ComfirmTracking.this, P7TakingPhoto.class);
         Global.piWriter.println("TRACKING 120");
         startActivity(intent);
     }

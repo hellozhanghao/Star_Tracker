@@ -52,10 +52,16 @@ public class Global {
 
     public static String phoneIP;
     public static String cameraIP;
+
+
+    //Pi Related
     public static String piIP;
     public static Socket PiSocket;
     public static PrintWriter piWriter;
     public static BufferedReader piReader;
+
+    public static boolean NORTH_FOUND = false;
+    public static boolean STAR_FOUND = false;
 
 
     private static String deviceIpAddress;

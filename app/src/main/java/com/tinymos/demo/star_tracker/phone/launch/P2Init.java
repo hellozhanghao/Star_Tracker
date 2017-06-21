@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
-import com.tinymos.demo.star_tracker.phone.Calibrating;
+import com.tinymos.demo.star_tracker.phone.P3Calibrating;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class Init extends Activity {
+public class P2Init extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +44,9 @@ public class Init extends Activity {
         
     }
 
-
-
     public void onCalibrateButtonClicked(View view)
     {
-        Intent intent = new Intent(Init.this, Calibrating.class);
+        Intent intent = new Intent(P2Init.this, P3Calibrating.class);
         Global.piWriter.println("CALIBRATE TRUE");
         startActivity(intent);
     }

@@ -34,19 +34,19 @@
             android:name=".phone.StartPhoneActivity"
             android:screenOrientation="userLandscape" />
         <activity
-            android:name=".camera.StartCameraActivity"
+            android:name=".unusedCode.StartCameraActivity"
             android:screenOrientation="userLandscape" />
         <activity
-            android:name=".camera.CameraActivity"
+            android:name=".camera.C2CameraActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".phone.SearchStar" />
-        <activity android:name=".phone.TrackingProgress" />
-        <activity android:name=".phone.ComfirmTracking" />
-        <activity android:name=".phone.TakingPhoto" />
-        <activity android:name=".phone.launch.Init" />
-        <activity android:name=".phone.Calibrating" />
-        <activity android:name=".camera.launch.ServerCameraConnection"></activity>
-        <activity android:name=".phone.launch.ServerPhoneConnection"></activity>
+        <activity android:name=".phone.P4SearchStar" />
+        <activity android:name=".phone.P5TrackingProgress" />
+        <activity android:name=".phone.P6ComfirmTracking" />
+        <activity android:name=".phone.P7TakingPhoto" />
+        <activity android:name=".phone.launch.P2Init" />
+        <activity android:name=".phone.P3Calibrating" />
+        <activity android:name=".camera.launch.C1ServerCameraConnection"></activity>
+        <activity android:name=".phone.launch.P1ServerPhoneConnection"></activity>
     </application>
 
 </manifest>
