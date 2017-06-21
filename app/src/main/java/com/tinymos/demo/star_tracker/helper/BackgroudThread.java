@@ -20,13 +20,20 @@ public class BackgroudThread extends Thread {
                 Constant.serverOut.println("connect");
                 message = Constant.serverIn.readLine();
 
-                if (message.equals("Connection OK")){
-                    Log.i("Connection","Launcing Camera Activity");
-                    Constant.devicesReady = true;
-                }else {
+
+                if (message.equals("Checkout later")){
                     Log.i("Connection","Other Devices Not Ready");
                     Constant.devicesReady = false;
+                }else {
+                    Log.i("Connection","Launcing Next Activity");
+                    Log.i("Connection",message);
+                    String[] ips = message.split(";");
+                    Constant.phoneIP = ips[0];
+                    Constant.cameraIP = ips[1];
+                    Constant.piIP = ips[2];
+                    Constant.devicesReady = true;
                 }
+
 
             } catch (IOException e) {
                 e.printStackTrace();

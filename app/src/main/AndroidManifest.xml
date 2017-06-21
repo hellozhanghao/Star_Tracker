@@ -46,7 +46,7 @@
         <activity android:name=".phone.launch.Init" />
         <activity android:name=".phone.Calibrating" />
         <activity android:name=".camera.launch.ServerCameraConnection"></activity>
-        <activity android:name=".phone.launch.ServerPhone"></activity>
+        <activity android:name=".phone.launch.ServerPhoneConnection"></activity>
     </application>
 
 </manifest>

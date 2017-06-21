@@ -11,6 +11,7 @@ public class T1 {
         String[] messages1 = messages[0].split(":");
         String[] messages2 = messages[1].split(":");
 
+        System.out.println("hello".split(":")[0]);
 
 
     }

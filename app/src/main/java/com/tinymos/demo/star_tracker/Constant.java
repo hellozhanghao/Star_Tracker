@@ -41,9 +41,10 @@ public class Constant {
 
     public static String phoneIP;
     public static String cameraIP;
-    public static String PiIP = "localhost";
+    public static String piIP;
     public static Socket PiSocket;
     public static PrintWriter piWriter;
+    public static BufferedReader piReader;
 
 
     private static String deviceIpAddress;

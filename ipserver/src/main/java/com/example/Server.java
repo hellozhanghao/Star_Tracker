@@ -15,17 +15,17 @@ public class Server {
 
 
     public static boolean validConnection(){
-//        if (phoneIp != null & cameraIP != null & piIP != null){
-//            return true;
-//        }else{
-//            return false;
-//        }
-        // TODO: 2017/6/20  Add PI connection
-        if (phoneIp != null & cameraIP != null ){
+        if (phoneIp != null & cameraIP != null & piIP != null){
             return true;
         }else{
             return false;
         }
+        // TODO: 2017/6/20  Add PI connection
+//        if (phoneIp != null & cameraIP != null ){
+//            return true;
+//        }else{
+//            return false;
+//        }
     }
 
     public static String getIPs(){
@@ -44,17 +44,17 @@ public class Server {
             switch (message) {
                 case "phone":
                     phoneIp = socket.getInetAddress().toString().replace("/","");
-                    new ServerWorker(in,out).start();
+                    new ServerWorker(socket,in,out).start();
                     break;
                 case "camera":
                     cameraIP = socket.getInetAddress().toString().replace("/","");
                     // TODO: 2017/6/20 add camera worker
-                    new ServerWorker(in, out).start();
+                    new ServerWorker(socket,in, out).start();
                     break;
                 case "pi":
                     piIP = socket.getInetAddress().toString().replace("/","");
                     // TODO: 2017/6/20 add pi worker
-                    new ServerWorker(in, out).start();
+                    new ServerWorker(socket,in, out).start();
                     break;
             }
         }

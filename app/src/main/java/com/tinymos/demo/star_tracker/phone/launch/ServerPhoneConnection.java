@@ -11,7 +11,7 @@ import com.tinymos.demo.star_tracker.R;
 import com.tinymos.demo.star_tracker.helper.BackgroudThread;
 import com.tinymos.demo.star_tracker.helper.Connect;
 
-public class ServerPhone extends Activity {
+public class ServerPhoneConnection extends Activity {
 
 
 
@@ -40,7 +40,7 @@ public class ServerPhone extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.launch_server_phone);
+        setContentView(R.layout.launch_screen);
 
         //Check connection status
         if (!Constant.isServerConnected()){
@@ -55,7 +55,7 @@ public class ServerPhone extends Activity {
 
     public void runPhone()
     {
-        Intent intent = new Intent(ServerPhone.this, Init.class);
+        Intent intent = new Intent(ServerPhoneConnection.this, Init.class);
         startActivity(intent);
     }
 }
