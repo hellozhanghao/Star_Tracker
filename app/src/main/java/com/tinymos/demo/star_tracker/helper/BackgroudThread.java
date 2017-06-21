@@ -2,7 +2,7 @@ package com.tinymos.demo.star_tracker.helper;
 
 import android.util.Log;
 
-import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.Global;
 
 import java.io.IOException;
 
@@ -15,23 +15,23 @@ public class BackgroudThread extends Thread {
     String message;
 
     public void run(){
-        if (Constant.isServerConnected()){
+        if (Global.isServerConnected()){
             try {
-                Constant.serverOut.println("connect");
-                message = Constant.serverIn.readLine();
+                Global.serverOut.println("connect");
+                message = Global.serverIn.readLine();
 
 
                 if (message.equals("Checkout later")){
                     Log.i("Connection","Other Devices Not Ready");
-                    Constant.devicesReady = false;
+                    Global.devicesReady = false;
                 }else {
                     Log.i("Connection","Launcing Next Activity");
                     Log.i("Connection",message);
                     String[] ips = message.split(";");
-                    Constant.phoneIP = ips[0];
-                    Constant.cameraIP = ips[1];
-                    Constant.piIP = ips[2];
-                    Constant.devicesReady = true;
+                    Global.phoneIP = ips[0];
+                    Global.cameraIP = ips[1];
+                    Global.piIP = ips[2];
+                    Global.devicesReady = true;
                 }
 
 

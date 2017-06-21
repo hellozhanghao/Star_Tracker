@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 
 import java.io.BufferedReader;
@@ -49,7 +49,7 @@ public class StartCameraActivity extends Activity {
         //get device address
         WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
-        Constant.setDeviceIpAddress(ip);
+        Global.setDeviceIpAddress(ip);
 
         //to avoid network on main thread exception
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -63,7 +63,7 @@ public class StartCameraActivity extends Activity {
         }
 
         try {
-            Socket clientSocket = new Socket(Constant.serverIP, Constant.serverPort);
+            Socket clientSocket = new Socket(Global.serverIP, Global.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("I am a Camera");
 

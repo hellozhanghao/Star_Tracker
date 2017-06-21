@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 import com.tinymos.demo.star_tracker.helper.BackgroudThread;
-import com.tinymos.demo.star_tracker.helper.Connect;
+import com.tinymos.demo.star_tracker.helper.ConnectionThread;
 
 public class ServerPhoneConnection extends Activity {
 
@@ -29,7 +29,7 @@ public class ServerPhoneConnection extends Activity {
                 e.printStackTrace();
             }
 
-            if (Constant.devicesReady){
+            if (Global.devicesReady){
                 runPhone();
             }else {
                 handler.postDelayed(this, 2000); // refresh every 1000 ms = 1 sec
@@ -43,9 +43,9 @@ public class ServerPhoneConnection extends Activity {
         setContentView(R.layout.launch_screen);
 
         //Check connection status
-        if (!Constant.isServerConnected()){
+        if (!Global.isServerConnected()){
             Log.i("Connection","New Connection to Server");
-            Thread connect = new Connect("phone");
+            Thread connect = new ConnectionThread("phone");
             connect.start();
         }
         Log.i("Connection","Connection OK");

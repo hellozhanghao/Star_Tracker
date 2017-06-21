@@ -6,7 +6,7 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 
 public class TrackingProgress extends Activity {
@@ -19,8 +19,7 @@ public class TrackingProgress extends Activity {
         setContentView(R.layout.phone_tracking_progress);
 
         Bundle bundle = getIntent().getExtras();
-        Toast.makeText(getApplication(),bundle.getString("name"), Toast.LENGTH_LONG).show();
-        Constant.piWriter.println("star "+bundle.getString("name"));
+        Global.piWriter.println("STARNAME "+bundle.getString("name"));
 
         int secondsDelayed = 2;
         new Handler().postDelayed(new Runnable() {

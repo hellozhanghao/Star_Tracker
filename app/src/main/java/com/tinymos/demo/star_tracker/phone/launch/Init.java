@@ -7,7 +7,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 
-import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 import com.tinymos.demo.star_tracker.phone.Calibrating;
 
@@ -28,13 +28,13 @@ public class Init extends Activity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        if (Constant.piWriter == null){
+        if (Global.piWriter == null){
             try {
-                Constant.PiSocket = new Socket(Constant.piIP, 4322);
-                Constant.piWriter = new PrintWriter(Constant.PiSocket.getOutputStream(), true); //set true for autoflush
-                Constant.piReader = new BufferedReader(new InputStreamReader(Constant.PiSocket.getInputStream()));
-                Constant.piWriter.println("hello");
-                if (Constant.piReader.readLine().equals("hi")){
+                Global.PiSocket = new Socket(Global.piIP, 4322);
+                Global.piWriter = new PrintWriter(Global.PiSocket.getOutputStream(), true); //set true for autoflush
+                Global.piReader = new BufferedReader(new InputStreamReader(Global.PiSocket.getInputStream()));
+                Global.piWriter.println("hello");
+                if (Global.piReader.readLine().equals("hi")){
                     Log.i("Connection","Connected to PI");
                 }
             } catch (IOException e) {
@@ -49,7 +49,7 @@ public class Init extends Activity {
     public void onCalibrateButtonClicked(View view)
     {
         Intent intent = new Intent(Init.this, Calibrating.class);
-        Constant.piWriter.println("calibrate:");
+        Global.piWriter.println("CALIBRATE TRUE");
         startActivity(intent);
     }
 

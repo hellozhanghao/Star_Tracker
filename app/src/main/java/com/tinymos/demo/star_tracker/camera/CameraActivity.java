@@ -1,7 +1,10 @@
 package com.tinymos.demo.star_tracker.camera;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -29,35 +32,21 @@ public class CameraActivity extends Activity {
 
     private Camera mCamera;
     private CameraPreview mPreview;
+    private MediaRecorder mMediaRecorder;
+
     private String TAG = "Test";
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.camera);
+    String path = "/storage/emulated/0/Pictures/MyCameraApp/IMG_20170621_111426.jpg";
 
-        // Create an instance of Camera
-        mCamera = getCameraInstance();
-
-        // Create our Preview view and set it as the content of our activity.
-        mPreview = new CameraPreview(this, mCamera);
-        FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-        preview.addView(mPreview);
-
-
-//        // Add a listener to the Capture button
-//        Button captureButton = (Button) findViewById(R.id.button_capture);
-//        captureButton.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        // get an image from the camera
-//                        mCamera.takePicture(null, null, mPicture);
-//                    }
-//                }
-//        );
+    private boolean checkCameraHardware(Context context) {
+        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+            // this device has a camera
+            return true;
+        } else {
+            // no camera on this device
+            return false;
+        }
     }
-
 
     public static Camera getCameraInstance(){
         Camera c = null;
@@ -103,26 +92,84 @@ public class CameraActivity extends Activity {
         return mediaFile;
     }
 
-//    private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
-//
-//        @Override
-//        public void onPictureTaken(byte[] data, Camera camera) {
-//
-//            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
-//            if (pictureFile == null){
-//                Log.d(TAG, "Error creating media file, check storage permissions: ");
-//                return;
-//            }
-//            try {
-//                FileOutputStream fos = new FileOutputStream(pictureFile);
-//                fos.write(data);
-//                fos.close();
-//            } catch (FileNotFoundException e) {
-//                Log.d(TAG, "File not found: " + e.getMessage());
-//            } catch (IOException e) {
-//                Log.d(TAG, "Error accessing file: " + e.getMessage());
-//            }
-//        }
-//    };
+
+    private Camera.PictureCallback mPicture = new Camera.PictureCallback() {
+
+        @Override
+        public void onPictureTaken(byte[] data, Camera camera) {
+
+            File pictureFile = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+            if (pictureFile == null){
+                Log.d(TAG, "Error creating media file, check storage permissions: ");
+                return;
+            }
+
+            try {
+                FileOutputStream fos = new FileOutputStream(pictureFile);
+                fos.write(data);
+                fos.close();
+                Log.d(TAG, String.valueOf(pictureFile));
+                Log.d(TAG,"Picture taken");
+            } catch (FileNotFoundException e) {
+                Log.d(TAG, "File not found: " + e.getMessage());
+            } catch (IOException e) {
+                Log.d(TAG, "Error accessing file: " + e.getMessage());
+            }
+        }
+    };
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.camera);
+
+        // Create an instance of Camera
+        mCamera = getCameraInstance();
+
+        // Create our Preview view and set it as the content of our activity.
+        mPreview = new CameraPreview(this, mCamera);
+        FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+        preview.addView(mPreview);
+
+        Button captureButton = (Button) findViewById(R.id.button_capture);
+        captureButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // get an image from the camera
+                        mCamera.takePicture(null, null, mPicture);
+                    }
+                }
+        );
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        releaseMediaRecorder();       // if you are using MediaRecorder, release it first
+        releaseCamera();              // release the camera immediately on pause event
+    }
+
+    private void releaseMediaRecorder(){
+        if (mMediaRecorder != null) {
+            mMediaRecorder.reset();   // clear recorder configuration
+            mMediaRecorder.release(); // release the recorder object
+            mMediaRecorder = null;
+            mCamera.lock();           // lock camera for later use
+        }
+    }
+
+    private void releaseCamera(){
+        if (mCamera != null){
+            mCamera.release();        // release the camera for other applications
+            mCamera = null;
+        }
+    }
+
+
+
+
+
 
 }

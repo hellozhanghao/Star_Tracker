@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.tinymos.demo.star_tracker.Constant;
+import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 
 import java.io.BufferedReader;
@@ -44,14 +44,14 @@ public class StartPhoneActivity extends Activity {
         //get device address
         WifiManager wm = (WifiManager) getApplicationContext().getSystemService(WIFI_SERVICE);
         String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
-        Constant.setDeviceIpAddress(ip);
+        Global.setDeviceIpAddress(ip);
 
         //to avoid network on main thread exception
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         try {
-            Socket clientSocket = new Socket(Constant.serverIP, Constant.serverPort);
+            Socket clientSocket = new Socket(Global.serverIP, Global.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("I am a Phone");
 
@@ -70,7 +70,7 @@ public class StartPhoneActivity extends Activity {
 
     public void getIP(View view){
         try {
-            Socket clientSocket = new Socket(Constant.serverIP, Constant.serverPort);
+            Socket clientSocket = new Socket(Global.serverIP, Global.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("request ip");
 
@@ -83,8 +83,8 @@ public class StartPhoneActivity extends Activity {
             String[] messages = message.split(";");
             String[] messages1 = messages[0].split(":");
             String[] messages2 = messages[1].split(":");
-            Constant.phoneIP = messages1[1];
-            Constant.cameraIP = messages2[1];
+            Global.phoneIP = messages1[1];
+            Global.cameraIP = messages2[1];
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -95,7 +95,7 @@ public class StartPhoneActivity extends Activity {
 
     public void sendMessage(View view){
         try {
-            Socket clientSocket = new Socket(Constant.cameraIP, Constant.serverPort);
+            Socket clientSocket = new Socket(Global.cameraIP, Global.serverPort);
             PrintWriter printWriter = new PrintWriter(clientSocket.getOutputStream(), true); //set true for autoflush
             printWriter.println("Message "+ counter);
             counter++;

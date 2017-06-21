@@ -17,19 +17,17 @@ public class PiServer extends Thread {
 
     public static void main(String[] args) {
         try {
-
-
-            Socket socket_temp = new Socket("10.12.44.104", 4321);
+            Socket socket_temp = new Socket(TestGlobal.serverIP, 4321);
             PrintWriter serverOut = new PrintWriter(socket_temp.getOutputStream(), true);
             BufferedReader serverIn = new BufferedReader(new InputStreamReader(socket_temp.getInputStream()));
             serverOut.println("pi");
             serverOut.print("bye");
 
 
+
             // TODO: 2017/6/21 Keep Socekt open for now
-//            socket_temp.close();
 
-
+            socket_temp.close();
 
             long startTime = System.currentTimeMillis();
 
@@ -58,17 +56,21 @@ public class PiServer extends Thread {
                         out.println("star received");
                         break;
 
-                    case "calibrate":
+
+//                    "CALIBRATE TRUE"
+                    case "CALIBRATE TRUE":
                         System.out.println("Calibrating");
                         // TODO: 2017/6/21 Do calibration here
                         break;
-                    case "abort":
-                        if (messages[1].equals("true")){
-                            // TODO: 2017/6/21 Abort
-                        }else {
-                            // TODO: 2017/6/21 Continue
-                        }
-                        break;
+//                    case "abort":
+//                        if (messages[1].equals("true")){
+//                            // TODO: 2017/6/21 Abort
+//                        }else {
+//                            // TODO: 2017/6/21 Continue
+//                        }
+//                        break;
+
+
                     case "photo":
                         int exposure = Integer.decode(messages[1]);
                         // TODO: 2017/6/21 Take photo with exposure

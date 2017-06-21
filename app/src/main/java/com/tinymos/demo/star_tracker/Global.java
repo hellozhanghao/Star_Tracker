@@ -8,11 +8,22 @@ import java.net.Socket;
  * Created by zhanghao on 2017/6/5.
  */
 
-public class Constant {
+public class Global {
+
+
+
+
+//    NORTH FOUND
+//    STAR FOUND
+//    TRACKER READY
+//    PICTURE TAKEN
+
+
 
     //server communications
     public static int serverPort =4321;
-    public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
+//    public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
+    public static String serverIP = "10.12.87.140";
 
     public static Socket serverSocket;
     public static BufferedReader serverIn;
@@ -55,7 +66,7 @@ public class Constant {
     }
 
     public static void setDeviceIpAddress(String deviceIpAddress) {
-        Constant.deviceIpAddress = deviceIpAddress;
+        Global.deviceIpAddress = deviceIpAddress;
     }
 
 
