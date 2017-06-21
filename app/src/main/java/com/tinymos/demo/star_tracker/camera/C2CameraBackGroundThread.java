@@ -15,15 +15,13 @@ import java.net.Socket;
 
 public class C2CameraBackGroundThread extends Thread {
     public void run(){
-        do{
-            try{
-                Global.cameraSocket = new Socket(Global.phoneIP,4323);
-                Global.cameraWriter = new PrintWriter(Global.cameraSocket.getOutputStream(), true);
-                Global.cameraReader = new BufferedReader(new InputStreamReader(Global.cameraSocket.getInputStream()));
-            }catch (Exception e){
-                Log.e("Error",e.getMessage());
-            }
-        }while (Global.cameraSocket == null);
+        while (Global.cameraSocket == null) try {
+            Global.cameraSocket = new Socket(Global.phoneIP, 4323);
+            Global.cameraWriter = new PrintWriter(Global.cameraSocket.getOutputStream(), true);
+            Global.cameraReader = new BufferedReader(new InputStreamReader(Global.cameraSocket.getInputStream()));
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+        }
 
         while(true){
             try{

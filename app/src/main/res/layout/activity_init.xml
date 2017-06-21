@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/stars"
     tools:context="com.tinymos.demo.star_tracker.phone.launch.P2Init">
 
 
@@ -20,11 +21,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
+
+            <ImageButton
                 android:id="@+id/menu_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Menu" />
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:elevation="0dp"
+                android:src="@drawable/menu_white" />
+
 
             <Button
                 android:id="@+id/calibrate_button"
