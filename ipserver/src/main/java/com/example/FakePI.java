@@ -18,6 +18,11 @@ public class FakePI {
         System.out.println("Message from phone:"+message);
     }
 
+    public static void sendMessage(PrintWriter out,String message){
+        out.println(message);
+        System.out.println(message);
+    }
+
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Socket socket_temp = new Socket(TestGlobal.serverIP, 4321);
@@ -47,14 +52,18 @@ public class FakePI {
 
 
         getMessage(in);
-        Thread.sleep(4000);
-        out.println("NORTH FOUND");
-        System.out.println("NORTH FOUND");
+        Thread.sleep(7000);
+        sendMessage(out,"NORTH FOUND");
 
         getMessage(in);
-        Thread.sleep(4000);
-        out.println("STAR FOUND");
-        System.out.println("STAR FOUND");
+        Thread.sleep(7000);
+        sendMessage(out,"STAR FOUND");
+
+        getMessage(in);
+        Thread.sleep(7000);
+        sendMessage(out,"PICTURE TAKEN");
+
+
 
     }
 }

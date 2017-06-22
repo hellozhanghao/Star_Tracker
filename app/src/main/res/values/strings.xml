@@ -9,5 +9,6 @@
     <string name="waiting">Waiting for Other Devices</string>
     <string name="calibrating">Calibrating...</string>
     <string name="searching">Searching for Star...</string>
+    <string name="placeholder">placeholder</string>
 
 </resources>

@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tinymos.demo.star_tracker.Global;
@@ -34,11 +35,14 @@ public class P2Init extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_init);
+        setContentView(R.layout.text_loading);
 
-        //to avoid network on main thread exception
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        TextView text = (TextView)findViewById(R.id.text);
+        text.setText("Connecting to Tracker");
+
+//        //to avoid network on main thread exception
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
 
 
         Thread phoneToPiThread = new PhoneToPiConnectionThread();

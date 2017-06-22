@@ -10,31 +10,33 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 
-public class P4SearchStar extends Activity {
+public class P6SetExposure extends Activity {
 
 
-    Button   mButton;
+    Button mButton;
     EditText mSearchBar;
     TextView mTitle,mOption;
-    String starName;
+    String exposure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.text_input);
 
+
         mTitle = (TextView)findViewById(R.id.title);
         mButton = (Button)findViewById(R.id.search_button);
         mSearchBar = (EditText)findViewById(R.id.search_bar);
         mOption = (TextView)findViewById(R.id.option);
 
-        mTitle.setText("Tracker is Ready!");
-        mSearchBar.setInputType(InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE);
-        mSearchBar.setHint("Type you star");
-        mOption.setText("Star Name");
-        mButton.setText("Search");
+        mTitle.setText("Star Found!");
+        mSearchBar.setInputType(InputType.TYPE_DATETIME_VARIATION_TIME);
+        mSearchBar.setHint("");
+        mOption.setText("Exposure Time");
+        mButton.setText("Start Taking Photo");
 
 
 
@@ -44,14 +46,16 @@ public class P4SearchStar extends Activity {
                 {
                     public void onClick(View view)
                     {
-                        starName = mSearchBar.getText().toString();
-                        if (starName.equals("")){
-                            Toast.makeText(getApplication(),"Star can't be empty!", Toast.LENGTH_LONG).show();
+                        exposure = mSearchBar.getText().toString();
+                        if (exposure.equals("")){
+                            Toast.makeText(getApplication(),"Exposure time can't be empty!", Toast.LENGTH_LONG).show();
                         }else {
-                            startTracking(view);
+                            takePhoto(view);
                         }
                     }
                 });
+
+
 
     }
 
@@ -60,12 +64,10 @@ public class P4SearchStar extends Activity {
         //disable backbutton
     }
 
-    public void startTracking(View view)
+    public void takePhoto(View view)
     {
-        Intent intent = new Intent(P4SearchStar.this, P5TrackingProgress.class);
-        intent.putExtra("name",starName);
+        Intent intent = new Intent(P6SetExposure.this, P7TakingPhoto.class);
+        Global.piWriter.println("TRACKING "+exposure);
         startActivity(intent);
     }
-
-
 }

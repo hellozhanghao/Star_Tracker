@@ -40,7 +40,7 @@
             android:name=".phone.P5TrackingProgress"
             android:screenOrientation="userLandscape" />
         <activity
-            android:name=".phone.P6ComfirmTracking"
+            android:name=".phone.P6SetExposure"
             android:screenOrientation="userLandscape" />
         <activity
             android:name=".phone.P7TakingPhoto"

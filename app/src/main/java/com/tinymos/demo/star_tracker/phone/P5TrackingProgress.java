@@ -49,7 +49,7 @@ public class P5TrackingProgress extends Activity {
     }
 
     public void next(){
-        Intent i = new Intent(P5TrackingProgress.this, P6ComfirmTracking.class);
+        Intent i = new Intent(P5TrackingProgress.this, P6SetExposure.class);
         startActivity(i);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         finish();
