@@ -41,7 +41,7 @@ public class P1ServerPhoneConnection extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.text_screen);
+        setContentView(R.layout.text_loading);
 
         TextView text = (TextView)findViewById(R.id.text);
         text.setText(R.string.waiting);

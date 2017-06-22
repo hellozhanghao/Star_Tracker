@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class Splash extends Activity {
+public class SplashScreen extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class Splash extends Activity {
             public void run() {
 
 
-                Intent i = new Intent(Splash.this, MainActivity.class);
+                Intent i = new Intent(SplashScreen.this, SelectDevice.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
 
 import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
@@ -27,7 +28,10 @@ public class P3Calibrating extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.phone_calibrating);
+        setContentView(R.layout.text_loading);
+
+        TextView text = (TextView)findViewById(R.id.text);
+        text.setText(R.string.calibrating);
 
         //waiting for pi to response
         Thread thread = new P3CalibratingBackGroundThread();

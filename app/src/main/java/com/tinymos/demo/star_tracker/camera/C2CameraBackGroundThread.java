@@ -25,8 +25,8 @@ public class C2CameraBackGroundThread extends Thread {
 
         while(true){
             try{
-                Global.cameraReader.readLine();
-                Global.press();
+                String message = Global.cameraReader.readLine();
+                if (message.equals("press")) Global.press();
             }catch (Exception e){
                 Log.e("Camera",e.getMessage());
             }

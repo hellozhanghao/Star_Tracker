@@ -19,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
         <activity
-            android:name=".Splash"
+            android:name=".SplashScreen"
             android:screenOrientation="userLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".SelectDevice"
             android:screenOrientation="userLandscape" />
         <activity
             android:name=".camera.C2Camera"

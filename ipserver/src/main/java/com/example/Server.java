@@ -20,12 +20,6 @@ public class Server {
         }else{
             return false;
         }
-        // TODO: 2017/6/20  Add PI connection
-//        if (phoneIp != null & piIP != null ){
-//            return true;
-//        }else{
-//            return false;
-//        }
     }
 
     public static String getIPs(){

@@ -6,31 +6,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
-import com.tinymos.demo.star_tracker.camera.C2Camera;
 import com.tinymos.demo.star_tracker.camera.launch.C1ServerCameraConnection;
 import com.tinymos.demo.star_tracker.phone.launch.P1ServerPhoneConnection;
-import com.tinymos.demo.star_tracker.phone.launch.P2Init;
 
-public class MainActivity extends Activity {
+public class SelectDevice extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.select_device);
     }
 
     public void startPhone(View view)
     {
-//        Intent intent = new Intent(MainActivity.this, P2Init.class);
-        Intent intent = new Intent(MainActivity.this, P1ServerPhoneConnection.class);
+//        Intent intent = new Intent(SelectDevice.this, P2Init.class);
+        Intent intent = new Intent(SelectDevice.this, P1ServerPhoneConnection.class);
         startActivity(intent);
     }
 
     public void startCamera(View view)
     {
-        Intent intent = new Intent(MainActivity.this, C1ServerCameraConnection.class);
-//        Intent intent = new Intent(MainActivity.this, C2Camera.class);
+        Intent intent = new Intent(SelectDevice.this, C1ServerCameraConnection.class);
+//        Intent intent = new Intent(SelectDevice.this, C2Camera.class);
 
         startActivity(intent);
     }
