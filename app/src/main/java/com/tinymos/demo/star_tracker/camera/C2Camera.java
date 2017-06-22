@@ -189,6 +189,11 @@ public class C2Camera extends Activity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
 
     private void takePicture(){
         mCamera.takePicture(null, null, mPicture);

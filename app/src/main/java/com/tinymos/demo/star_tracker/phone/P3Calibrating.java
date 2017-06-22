@@ -41,6 +41,11 @@ public class P3Calibrating extends Activity {
         backGroundTask.run();
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
     private void next(){
         Intent i = new Intent(P3Calibrating.this, P4SearchStar.class);
         startActivity(i);

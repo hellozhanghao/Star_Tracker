@@ -5,7 +5,7 @@ package com.example;
  */
 
 public class TestGlobal {
-    public static String serverIP = "10.12.44.104";
-//    public static String serverIP = "10.12.87.140";
+//    public static String serverIP = "10.12.44.104";
+    public static String serverIP = "10.12.87.140";
 
 }

@@ -42,6 +42,11 @@ public class P4SearchStar extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
     public void startTracking(View view)
     {
         Intent intent = new Intent(P4SearchStar.this, P5TrackingProgress.class);

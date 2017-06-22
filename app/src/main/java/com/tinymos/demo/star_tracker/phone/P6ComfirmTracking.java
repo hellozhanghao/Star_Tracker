@@ -16,6 +16,11 @@ public class P6ComfirmTracking extends Activity {
         setContentView(R.layout.phone_comfirm_tracking);
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
     public void takePhoto(View view)
     {
         Intent intent = new Intent(P6ComfirmTracking.this, P7TakingPhoto.class);

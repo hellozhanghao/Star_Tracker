@@ -57,6 +57,11 @@ public class P1ServerPhoneConnection extends Activity {
         backGroundTask.run();
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
 
     public void runPhone()
     {

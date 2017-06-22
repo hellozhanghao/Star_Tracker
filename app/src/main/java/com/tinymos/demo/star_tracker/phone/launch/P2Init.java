@@ -51,6 +51,11 @@ public class P2Init extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
     public void onCalibrateButtonClicked(View view)
     {
 

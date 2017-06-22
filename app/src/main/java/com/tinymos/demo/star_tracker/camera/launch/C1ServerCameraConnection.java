@@ -58,6 +58,11 @@ public class C1ServerCameraConnection extends Activity {
         backGroundTask.run();
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
 
     public void next()
     {

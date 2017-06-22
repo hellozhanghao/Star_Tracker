@@ -29,6 +29,11 @@ public class P7TakingPhoto extends Activity {
         }, secondsDelayed * 1000);
     }
 
+    @Override
+    public void onBackPressed() {
+        //disable backbutton
+    }
+
 //    public void abort(View view)
 //    {
 //        Intent intent = new Intent(P7TakingPhoto.this, P4SearchStar.class);
