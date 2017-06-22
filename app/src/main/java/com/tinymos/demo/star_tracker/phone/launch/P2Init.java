@@ -29,7 +29,7 @@ public class P2Init extends Activity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        if (Global.piWriter == null){
+        while (Global.piWriter == null){
             try {
                 Global.PiSocket = new Socket(Global.piIP, 4322);
                 Global.piWriter = new PrintWriter(Global.PiSocket.getOutputStream(), true); //set true for autoflush
@@ -45,7 +45,8 @@ public class P2Init extends Activity {
 
         Thread thread = new PhoneToCameraThread();
         thread.start();
-        
+
+
     }
 
     public void onCalibrateButtonClicked(View view)
