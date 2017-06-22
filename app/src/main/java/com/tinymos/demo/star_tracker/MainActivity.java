@@ -22,8 +22,8 @@ public class MainActivity extends Activity {
 
     public void startPhone(View view)
     {
-        Intent intent = new Intent(MainActivity.this, P2Init.class);
-//        Intent intent = new Intent(MainActivity.this, P1ServerPhoneConnection.class);
+//        Intent intent = new Intent(MainActivity.this, P2Init.class);
+        Intent intent = new Intent(MainActivity.this, P1ServerPhoneConnection.class);
         startActivity(intent);
     }
 

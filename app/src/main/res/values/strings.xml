@@ -6,4 +6,6 @@
     <string name="camera_button">CAMERA</string>
     <string name="phone_button">PHONE</string>
 
+    <string name="waiting">Waiting for Other Devices</string>
+
 </resources>

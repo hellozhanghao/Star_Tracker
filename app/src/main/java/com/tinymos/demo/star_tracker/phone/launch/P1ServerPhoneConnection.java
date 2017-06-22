@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
@@ -40,7 +41,10 @@ public class P1ServerPhoneConnection extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.launch_screen);
+        setContentView(R.layout.text_screen);
+
+        TextView text = (TextView)findViewById(R.id.text);
+        text.setText(R.string.waiting);
 
         //Check connection status
         if (!Global.isServerConnected()){

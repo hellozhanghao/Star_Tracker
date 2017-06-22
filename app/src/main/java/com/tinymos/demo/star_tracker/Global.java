@@ -21,8 +21,8 @@ public class Global {
      * Set serverIP to static Network IP
      * */
     public static int serverPort =4321;
-//    public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
-    public static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
+    public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
+//    public static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
 
     //Sockets
     public static Socket serverSocket;

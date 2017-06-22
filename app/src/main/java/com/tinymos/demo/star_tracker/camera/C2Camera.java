@@ -46,7 +46,6 @@ public class C2Camera extends Activity {
             if (Global.PRESS ){
                 takePicture();
                 Global.press();
-                Log.d("Camera",String.valueOf(Global.PRESS));
             }
 
             handler.postDelayed(this, 2000);

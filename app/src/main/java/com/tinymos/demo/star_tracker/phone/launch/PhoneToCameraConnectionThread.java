@@ -12,7 +12,7 @@ import java.net.ServerSocket;
  * Created by zhanghao on 2017/6/21.
  */
 
-public class PhoneToCameraThread extends Thread {
+public class PhoneToCameraConnectionThread extends Thread {
     public void run(){
         try {
             Global.cameraServerSocket = new ServerSocket(4323);

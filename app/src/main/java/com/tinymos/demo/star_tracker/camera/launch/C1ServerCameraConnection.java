@@ -41,7 +41,7 @@ public class C1ServerCameraConnection extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.launch_screen);
+        setContentView(R.layout.text_screen);
 
 
         //Check connection status
