@@ -16,6 +16,8 @@ public class Global {
 //    TRACKER READY
 //    PICTURE TAKEN
 
+    //Review 3
+
     /**
      * Server Communications
      * Set serverIP to static Network IP
