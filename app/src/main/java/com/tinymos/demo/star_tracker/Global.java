@@ -1,5 +1,8 @@
 package com.tinymos.demo.star_tracker;
 
+import android.location.LocationListener;
+import android.location.LocationManager;
+
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -65,6 +68,11 @@ public class Global {
     public static Socket cameraSocket;
     public static PrintWriter cameraWriter;
     public static BufferedReader cameraReader;
+
+    // GPS
+    public static LocationManager locationManager;
+    public static LocationListener locationListener;
+
 
 
 }
