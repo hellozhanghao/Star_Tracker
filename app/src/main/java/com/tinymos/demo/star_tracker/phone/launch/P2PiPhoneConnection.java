@@ -40,28 +40,6 @@ public class P2PiPhoneConnection extends Activity {
     };
 
 
-
-//    LocationManager mLocationManager;
-//    Location myLocation = getLastKnownLocation();
-//
-//    private Location getLastKnownLocation() {
-//        mLocationManager = (LocationManager)getApplicationContext().getSystemService(LOCATION_SERVICE);
-//        List<String> providers = mLocationManager.getProviders(true);
-//        mLocationManager.requestLocationUpdates(mLocationManager.GPS_PROVIDER,);
-//        Location bestLocation = null;
-//        for (String provider : providers) {
-//            Location l = mLocationManager.getLastKnownLocation(provider);
-//            if (l == null) {
-//                continue;
-//            }
-//            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
-//                // Found best last known location: %s", l);
-//                bestLocation = l;
-//            }
-//        }
-//        return bestLocation;
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,9 +48,6 @@ public class P2PiPhoneConnection extends Activity {
         TextView text = (TextView) findViewById(R.id.text);
         text.setText("Connecting to Tracker");
 
-//        //to avoid network on main thread exception
-//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//        StrictMode.setThreadPolicy(policy);
 
 
         Thread phoneToPiThread = new PhoneToPiConnectionThread();
@@ -113,15 +88,17 @@ public class P2PiPhoneConnection extends Activity {
         if (location == null){
             locationManager.requestLocationUpdates(LocationManager.PASSIVE_PROVIDER, 0, 0, locationListener);
             location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+            Toast.makeText(getApplication(),"GPS Signal Weak, using estimated location", Toast.LENGTH_LONG).show();
+
         }
+
+
 
         Log.d("location",String.valueOf(location.getLatitude()));
         Log.d("location",String.valueOf(location.getLongitude()));
 
-//        Toast.makeText(getApplication(),location, Toast.LENGTH_LONG).show();
 
         backGroundTask.run();
-
 
     }
 
@@ -154,7 +131,6 @@ public class P2PiPhoneConnection extends Activity {
             Global.cameraWriter.println("press");
         }else {
             Toast.makeText(getApplication(),"Camera not ready", Toast.LENGTH_LONG).show();
-
         }
     }
 
