@@ -46,16 +46,16 @@
             android:name=".phone.P7TakingPhoto"
             android:screenOrientation="userLandscape"/>
         <activity
-            android:name=".phone.launch.P2Init"
+            android:name=".phone.launch.P2PiPhoneConnection"
             android:screenOrientation="userLandscape" />
         <activity
             android:name=".phone.P3Calibrating"
             android:screenOrientation="userLandscape"/>
         <activity
-            android:name=".camera.launch.C1ServerCameraConnection"
+            android:name=".camera.launch.C1CameraPhoneConnection"
             android:screenOrientation="userLandscape"/>
         <activity
-            android:name=".phone.launch.P1ServerPhoneConnection"
+            android:name=".phone.launch.P1CameraPhoneConnection"
             android:screenOrientation="userLandscape"/>
     </application>
 

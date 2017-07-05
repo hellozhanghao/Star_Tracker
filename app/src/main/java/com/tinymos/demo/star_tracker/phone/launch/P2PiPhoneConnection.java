@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -14,7 +13,7 @@ import com.tinymos.demo.star_tracker.Global;
 import com.tinymos.demo.star_tracker.R;
 import com.tinymos.demo.star_tracker.phone.P3Calibrating;
 
-public class P2Init extends Activity {
+public class P2PiPhoneConnection extends Activity {
 
 
 
@@ -48,8 +47,6 @@ public class P2Init extends Activity {
         Thread phoneToPiThread = new PhoneToPiConnectionThread();
         phoneToPiThread.start();
 
-        Thread phoneToCameraThread = new PhoneToCameraConnectionThread();
-        phoneToCameraThread.start();
 
         backGroundTask.run();
 
@@ -64,7 +61,7 @@ public class P2Init extends Activity {
     {
 
         if (Global.piWriter != null){
-            Intent intent = new Intent(P2Init.this, P3Calibrating.class);
+            Intent intent = new Intent(P2PiPhoneConnection.this, P3Calibrating.class);
             Global.piWriter.println("CALIBRATE TRUE");
             startActivity(intent);
         }else {
@@ -74,7 +71,7 @@ public class P2Init extends Activity {
 
     public void onCalibrateRequested()
     {
-            Intent intent = new Intent(P2Init.this, P3Calibrating.class);
+            Intent intent = new Intent(P2PiPhoneConnection.this, P3Calibrating.class);
             Global.piWriter.println("CALIBRATE TRUE");
             startActivity(intent);
     }

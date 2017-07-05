@@ -18,38 +18,11 @@ public class Global {
 
     //Review 3
 
-    /**
-     * Server Communications
-     * Set serverIP to static Network IP
-     * */
-    public static int serverPort =4321;
-    public static String serverIP = "10.12.44.104";    //Zhang Hao's iMac
-//    public static String serverIP = "10.12.87.140";  //Zhang Hao's Macbook Air
-
-    //Sockets
-    public static Socket serverSocket;
-    public static BufferedReader serverIn;
-    public static PrintWriter serverOut;
-
-    public static boolean isServerConnected(){
-        if (serverSocket!=null & serverIn!=null & serverOut!=null){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    public static void resetServerConnection(){
-        serverSocket = null;
-        serverIn = null;
-        serverOut = null;
-    }
 
 
     /**
      * Global Boolean Variables
      */
-    public static boolean ALL_DEVICES_READY = false;
 
     public static boolean NORTH_FOUND = false;
     public static boolean STAR_FOUND = false;
@@ -60,14 +33,14 @@ public class Global {
     /**
      * PI Network
      */
-    public static String piIP;
+    public static String piIP = null;
     public static Socket PiSocket;
     public static PrintWriter piWriter;
     public static BufferedReader piReader;
 
 
-    public static String phoneIP;
-    public static String cameraIP;
+    public static String phoneIP = "10.12.100.41";
+    public static String cameraIP = "10.12.152.117";
 
 
     /**
@@ -77,10 +50,12 @@ public class Global {
     public static void press(){
         PRESS = !PRESS;
     }
-//    public static boolean PRESS2 = false;
-//    public static void press2(){
-//        PRESS2 = !PRESS2;
-//    }
+
+    public static boolean cameraPhoneConnected = false;
+
+
+
+
 
     /**
      * Phone

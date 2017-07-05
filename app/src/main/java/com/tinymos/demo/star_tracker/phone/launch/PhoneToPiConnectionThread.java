@@ -25,7 +25,12 @@ public class PhoneToPiConnectionThread extends Thread {
                 if (Global.piReader.readLine().equals("hi")){
                     Log.i("Connection","Connected to PI");
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
