@@ -8,6 +8,7 @@ import android.view.Window;
 
 import com.tinymos.demo.star_tracker.camera.launch.C1CameraPhoneConnection;
 import com.tinymos.demo.star_tracker.phone.launch.P1CameraPhoneConnection;
+import com.tinymos.demo.star_tracker.phone.launch.P2PiPhoneConnection;
 
 public class SelectDevice extends Activity {
 
@@ -20,8 +21,8 @@ public class SelectDevice extends Activity {
 
     public void startPhone(View view)
     {
-//        Intent intent = new Intent(SelectDevice.this, P2PiPhoneConnection.class);
-        Intent intent = new Intent(SelectDevice.this, P1CameraPhoneConnection.class);
+        Intent intent = new Intent(SelectDevice.this, P2PiPhoneConnection.class);
+//        Intent intent = new Intent(SelectDevice.this, P1CameraPhoneConnection.class);
         startActivity(intent);
     }
 

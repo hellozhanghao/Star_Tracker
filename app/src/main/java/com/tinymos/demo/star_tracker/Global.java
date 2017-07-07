@@ -36,7 +36,7 @@ public class Global {
     /**
      * PI Network
      */
-    public static String piIP = null;
+    public static String piIP = "10.12.67.233";
     public static Socket PiSocket;
     public static PrintWriter piWriter;
     public static BufferedReader piReader;
