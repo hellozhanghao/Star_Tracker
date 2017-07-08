@@ -18,12 +18,14 @@ public class PhoneToPiConnectionThread extends Thread {
     public void run(){
         while (Global.piWriter == null){
             try {
-                Global.PiSocket = new Socket(Global.piIP, 4322);
+                Global.PiSocket = new Socket(Global.piIP, 5003);
                 Global.piWriter = new PrintWriter(Global.PiSocket.getOutputStream(), true); //set true for autoflush
                 Global.piReader = new BufferedReader(new InputStreamReader(Global.PiSocket.getInputStream()));
                 Global.piWriter.println("hello");
-                if (Global.piReader.readLine().equals("hi")){
+                String message = Global.piReader.readLine();
+                if (message.equals("hi")){
                     Log.i("Connection","Connected to PI");
+                    return;
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -54,9 +54,6 @@ public class P6SetExposure extends Activity {
                         }
                     }
                 });
-
-
-
     }
 
     @Override
@@ -67,7 +64,14 @@ public class P6SetExposure extends Activity {
     public void takePhoto(View view)
     {
         Intent intent = new Intent(P6SetExposure.this, P7TakingPhoto.class);
-        Global.piWriter.println("TRACKING "+exposure);
+
+        Thread thread = new Thread(){
+            public void run(){
+                Global.piWriter.println("TRACKING "+exposure);
+            }
+        };
+        thread.start();
+
         startActivity(intent);
     }
 }

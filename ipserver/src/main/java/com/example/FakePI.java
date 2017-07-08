@@ -25,19 +25,6 @@ public class FakePI {
 
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        Socket socket_temp = new Socket(TestGlobal.serverIP, 4321);
-        PrintWriter serverOut = new PrintWriter(socket_temp.getOutputStream(), true);
-        BufferedReader serverIn = new BufferedReader(new InputStreamReader(socket_temp.getInputStream()));
-        serverOut.println("pi");
-        serverOut.print("bye");
-
-
-
-        // TODO: 2017/6/21 Keep Socket open for now
-
-        socket_temp.close();
-
-        long startTime = System.currentTimeMillis();
 
         ServerSocket serverSocket = new ServerSocket(4322);
         Socket socket = serverSocket.accept();
